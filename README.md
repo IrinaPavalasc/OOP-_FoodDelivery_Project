@@ -1,14 +1,24 @@
 Clase:
 -Person(clasa abstracta) 
+
 -Address
+
 -Card
+
 -User(mostenita din Person si compusa din Address si Card)
+
 -Driver(mostenita din Person)
+
 -Product(clasa abstracta)
+
 -Food(mostenita din Product)
+
 -Drink(mostenita din Product)
+
 -Restaurant(compusa din Food si Drink)
+
 -Order(compusa din User, Driver, Restaurant)
+
 -serviceUser
 
 ---------------------------------Actions----------------------------------
