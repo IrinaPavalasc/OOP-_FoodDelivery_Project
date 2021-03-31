@@ -39,8 +39,11 @@ Clase:
 Type the option number: 
 
 5 -"Inregistrarea" este necesara pentru logare
+
 6 -Logarea este necesara pentru a accesa actiunile 7,8,9,10,11 (deoarece acestea necesita informatiile utilizatorului curent)
+
 ****Restaurantele sunt sortate dupa categoria din care fac parte de fiecare data cand se adauga un nou restaurant
+
 ****Restaurantele contin un "FoodMeniu"- HashMap in care cheia este categoria obiectului "Food", iar valoarea este o listaa de obiecte "Food"
 
 *Functiile resgisterUser, registerDrivers, placeOrder, addDrink, addFood,registerRestaurants au fost comentate deoarece sunt incorporate in meniu
