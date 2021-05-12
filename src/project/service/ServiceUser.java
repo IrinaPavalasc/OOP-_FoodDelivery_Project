@@ -1,7 +1,6 @@
 package project.service;
-
 import project.classes.*;
-
+import project.service.*;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -10,6 +9,9 @@ public class ServiceUser {
     private static List<Order> registeredOrders = new ArrayList<>();
     private static List<Driver> registeredDrivers= new ArrayList<>();
     private static List<Restaurant> registeredRestaurants = new ArrayList<>();
+    public WritingFile write = WritingFile.getInstance();
+    public ReadingFile r = ReadingFile.getInstance();
+    public Audit audit = Audit.getInstance();
 
 //    public void registerDrivers(int employeeId, String firstName, String lastName, String email, int age, String phoneNumber, String carRegistrationNumber, String city) {
 //        Driver driver = new Driver(employeeId,firstName,lastName,email,age,phoneNumber,carRegistrationNumber, city);
@@ -180,6 +182,7 @@ public class ServiceUser {
         return DeliveryTotal;
     }
 
+
     public void MenuContent(){
         System.out.println("---------------------------------Actions----------------------------------");
         System.out.println("======================================================================================");
@@ -202,6 +205,14 @@ public class ServiceUser {
         User userCurent = null;
         Scanner read = new Scanner(System.in);
         Scanner readInt = new Scanner(System.in);
+        Restaurant restaurantT = new Restaurant();
+        Driver driverT = new Driver();
+        User userT = new User();
+        Order orderT = new Order();
+        registeredRestaurants = r.Reading(restaurantT);
+        registeredDrivers = r.Reading(driverT);
+        registeredUsers = r.Reading(userT);
+        registeredOrders = r.Reading(orderT);
         while (option != 0) {
             MenuContent();
             System.out.println("Type the option number: ");
@@ -224,7 +235,8 @@ public class ServiceUser {
                     HashMap<String, List<Food>> foodMeniu = new HashMap<>();
                     List<Drink> drinkMeniu = new ArrayList<>();
                     Restaurant restaurant = new Restaurant(restaurantName, category, minimumOrder, score, city, foodMeniu, drinkMeniu);
-                    registeredRestaurants.add(restaurant);
+                    write.Writing(restaurant);
+                    registeredRestaurants = r.Reading(restaurant);
                     System.out.println("Restaurant registered succesfully!");
                     Collections.sort(registeredRestaurants, new Comparator<Restaurant>() {
                         @Override
@@ -237,7 +249,7 @@ public class ServiceUser {
                     System.out.println("Please make sure all fields are filled in correctly.");
                     readInt.next();
                 }
-
+            audit.auditMethod(option);
             }
             if (option == 2) {
                 System.out.println("                   Add new food to your restaurant menu!                ");
@@ -279,6 +291,7 @@ public class ServiceUser {
                     System.out.println("Please make sure all fields are filled in correctly.");
                     readInt.next();
                 }
+                audit.auditMethod(option);
             }
             if (option == 3) {
                 System.out.println("                   Add a new drink to your restaurant menu!                ");
@@ -306,6 +319,7 @@ public class ServiceUser {
                     System.out.println("Please make sure all fields are filled in correctly.");
                     readInt.next();
                 }
+                audit.auditMethod(option);
             }
             if (option == 4) {
                 System.out.println("                     Register a new Driver!                                ");
@@ -328,13 +342,15 @@ public class ServiceUser {
                     System.out.println("City: ");
                     String city = read.nextLine();
                     Driver driver = new Driver(employeeId, firstName, lastName, email, age, phoneNumber, carRegistrationNumber, city);
-                    registeredDrivers.add(driver);
+                    write.Writing(driver);
+                    registeredDrivers = r.Reading(driver);
                     System.out.println("Driver registered successfully!");
                 }
                 catch(InputMismatchException e){
                     System.out.println("Please make sure all fields are filled in correctly.");
                     readInt.next();
                 }
+                audit.auditMethod(option);
             }
             if (option == 5) {
                 System.out.println("                     Register to FoodDelivery!                             ");
@@ -371,13 +387,15 @@ public class ServiceUser {
                     Address address = new Address(city, street, number, apartment);
                     Card card = new Card(cardNumber, expireDate, securityCode);
                     User user = new User(firstName, lastName, email, age, phoneNumber, address, card);
-                    registeredUsers.add(user);
+                    write.Writing(user);
+                    registeredUsers = r.Reading(user);
                     System.out.println("Registration successful");
                 }
                 catch(InputMismatchException e){
                     System.out.println("Please make sure all fields are filled in correctly.");
                     readInt.next();
                 }
+                audit.auditMethod(option);
             }
             if (option == 6) {
                 if (registeredUsers.size()==0) {
@@ -412,6 +430,7 @@ public class ServiceUser {
                         readInt.next();
                     }
                 }
+                audit.auditMethod(option);
             }
             if (option == 7) {
                 if (userCurent==null) {
@@ -487,6 +506,7 @@ public class ServiceUser {
                         }
                     }
                 }
+                audit.auditMethod(option);
             }
             if (option == 8) {
                 if (userCurent == null) {
@@ -564,11 +584,13 @@ public class ServiceUser {
                             throw new Exception();
                         int randomDriver = ThreadLocalRandom.current().nextInt(0, localDrivers.size());
                         order.setDriver(localDrivers.get(randomDriver));
-                        registeredOrders.add(order);
+                        write.Writing(order);
+                        registeredOrders = r.Reading(order);
                     } catch (Exception e1) {
                         System.out.println("There are no local drivers. Try again later!");
                     }
                 }
+                audit.auditMethod(option);
             }
             if (option == 9) {
                 if (userCurent==null) {
@@ -584,6 +606,7 @@ public class ServiceUser {
                     }
                     System.out.println(localDrivers);
                 }
+                audit.auditMethod(option);
             }
             if (option == 10) {
                 if (userCurent==null) {
@@ -597,6 +620,7 @@ public class ServiceUser {
                         }
                     }
                 }
+                audit.auditMethod(option);
             }
             if (option == 11) {
                 if (userCurent==null) {
@@ -606,9 +630,12 @@ public class ServiceUser {
                     System.out.println("===============================================================");
                     System.out.println(userCurent);
                 }
+                audit.auditMethod(option);
             }
             if (option == 12) {
+
                 printRestaurants();
+                audit.auditMethod(option);
             }
         }
     }
@@ -636,4 +663,6 @@ public class ServiceUser {
     public static List<Restaurant> getRegisteredRestaurants() {
         return registeredRestaurants;
     }
+
+
 }

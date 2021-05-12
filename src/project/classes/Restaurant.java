@@ -1,9 +1,7 @@
 package project.classes;
+import project.service.*;
 
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Restaurant {
        private String RestaurantName;
@@ -21,8 +19,8 @@ public class Restaurant {
         this.MinimumOrder = 0;
         this.score = 0;
         this.City = "";
-        this.FoodMeniu = null;
-        this.DrinkMeniu = null;
+        this.FoodMeniu = new HashMap<>();
+        this.DrinkMeniu = new ArrayList<>();
     }
     //constructor cu parametrii
     public Restaurant(String restaurantName, String category,int MinimumOrder, double score, String city,HashMap<String,List<Food>> foodMeniu, List<Drink> drinkMeniu) {
@@ -119,4 +117,5 @@ public class Restaurant {
     public void setDrinkMeniu(List<Drink> drinkMeniu) {
         DrinkMeniu = drinkMeniu;
     }
+
 }
