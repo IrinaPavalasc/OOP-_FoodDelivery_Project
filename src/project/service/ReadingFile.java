@@ -1,13 +1,10 @@
 package project.service;
-import project.classes.*;
+import project.models.*;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 
 public class ReadingFile {
 

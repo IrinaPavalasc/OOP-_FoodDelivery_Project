@@ -1,6 +1,5 @@
-package project.classes;
+package project.models;
 
-import java.util.List;
 import java.util.Objects;
 
 public class User extends Person {
@@ -48,19 +47,19 @@ public class User extends Person {
                 '}';
     }
 
-    public project.classes.Address getAddress() {
+    public project.models.Address getAddress() {
         return Address;
     }
 
-    public void setAddress(project.classes.Address address) {
+    public void setAddress(project.models.Address address) {
         Address = address;
     }
 
-    public project.classes.Card getCard() {
+    public project.models.Card getCard() {
         return Card;
     }
 
-    public void setCard(project.classes.Card card) {
+    public void setCard(project.models.Card card) {
         Card = card;
     }
 }

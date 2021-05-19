@@ -1,4 +1,4 @@
-package project.classes;
+package project.models;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +23,7 @@ public class Order {
         this.Driver = null;
         this.OrderedProducts = null;
     }
-    public Order(int orderNumber, Date orderDate, int deliveryTime, project.classes.User user, project.classes.Restaurant restaurant, project.classes.Driver driver, List<Product> orderedProducts) {
+    public Order(int orderNumber, Date orderDate, int deliveryTime, project.models.User user, project.models.Restaurant restaurant, project.models.Driver driver, List<Product> orderedProducts) {
         this.OrderNumber = orderNumber;
         this.OrderDate = orderDate;
         this.DeliveryTime = deliveryTime;
@@ -90,27 +90,27 @@ public class Order {
         DeliveryTime = deliveryTime;
     }
 
-    public project.classes.User getUser() {
+    public project.models.User getUser() {
         return User;
     }
 
-    public void setUser(project.classes.User user) {
+    public void setUser(project.models.User user) {
         User = user;
     }
 
-    public project.classes.Restaurant getRestaurant() {
+    public project.models.Restaurant getRestaurant() {
         return Restaurant;
     }
 
-    public void setRestaurant(project.classes.Restaurant restaurant) {
+    public void setRestaurant(project.models.Restaurant restaurant) {
         Restaurant = restaurant;
     }
 
-    public project.classes.Driver getDriver() {
+    public project.models.Driver getDriver() {
         return Driver;
     }
 
-    public void setDriver(project.classes.Driver driver) {
+    public void setDriver(project.models.Driver driver) {
         Driver = driver;
     }
 }

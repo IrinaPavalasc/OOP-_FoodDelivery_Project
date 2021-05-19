@@ -1,7 +1,6 @@
 package project.service;
-import project.classes.*;
-import java.util.Scanner;
-import java.util.List;
+import project.models.*;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -20,56 +19,6 @@ public class WritingFile{
 
             return single_instance;
         }
-//        public void WriteRestaurants(Restaurant r){
-//            try {
-//                FileWriter f = new FileWriter("src/project/Files/RestaurantsCSV.csv",true);
-//                    String data = r.getRestaurantName() + ',' +r.getCategory() + ',' +r.getMinimumOrder() + ',' + r.getScore() + ',' + r.getCity() + ',' +r.getFoodMeniu() + r.getDrinkMeniu() + '\n';
-//                    f.write(data);
-//                    f.flush();
-//
-//            } catch(IOException e){
-//                System.out.println("Error");
-//            }
-//        }
-//
-//    public void WriteDrivers(Driver d){
-//        try {
-//            FileWriter f = new FileWriter("src/project/Files/DriversCSV.csv",true);
-//                String data = d.getFirstName() + ',' + d.getLastName() + ',' + d.getEmail() + ',' + d.getAge()+ ',' + d.getPhoneNumber()+ ','+ d.getEmployeeId() + ',' + d.getCarRegistrationNumber() + ',' + d.getCity() + '\n';
-//                f.write(data);
-//                f.flush();
-//        } catch(IOException e){
-//            System.out.println("Error");
-//        }
-//    }
-//
-//    public void WriteUsers(User u){
-//        try {
-//            FileWriter f = new FileWriter("src/project/Files/UsersCSV.csv",true);
-//
-//                String data = u.getFirstName() + ',' + u.getLastName() + ',' + u.getEmail() + ',' + u.getAge()+ ',' + u.getPhoneNumber()+ ',' + u.getAddress().getCity() +',' + u.getAddress().getStreet() + ',' + u.getAddress().getNumber() + ',' + u.getAddress().getApartment() + ',' + u.getCard().getCardNumber() + ',' + u.getCard().getExpireDate() + ',' + u.getCard().getSecurityCode() + '\n';
-//                f.write(data);
-//                f.flush();
-//
-//        } catch(IOException e){
-//            System.out.println("Error");
-//        }
-//    }
-//    public void WriteOrders(Order o){
-//        try {
-//            FileWriter f = new FileWriter("src/project/Files/OrdersCSV.csv",true);
-//            Restaurant r = o.getRestaurant();
-//            User u = o.getUser();
-//            Driver d = o.getDriver();
-//
-//            String data = o.getOrderNumber() + "," + o.getOrderDate() + ',' + o.getDeliveryTime() + ',' + r.getRestaurantName() + ',' +r.getCategory() + ',' +r.getMinimumOrder() + ',' + r.getScore() + ',' + r.getCity() + ',' +r.getFoodMeniu() + r.getDrinkMeniu() + ',' + d.getFirstName() + ',' + d.getLastName() + ',' + d.getEmail() + ',' + d.getAge()+ ',' + d.getPhoneNumber()+ ','+ d.getEmployeeId() + ',' + d.getCarRegistrationNumber() + ',' + d.getCity() + ','+ u.getFirstName() + ',' + u.getLastName() + ',' + u.getEmail() + ',' + u.getAge()+ ',' + u.getPhoneNumber()+ ',' + u.getAddress().getCity() +',' + u.getAddress().getStreet() + ',' + u.getAddress().getNumber() + ',' + u.getAddress().getApartment() + ',' + u.getCard().getCardNumber() + ',' + u.getCard().getExpireDate() + ',' + u.getCard().getSecurityCode()+'\n';
-//            f.write(data);
-//            f.flush();
-//
-//        } catch(IOException e){
-//            System.out.println("Error");
-//        }
-//    }
 
     public <T> void Writing (T obj){
         if (obj instanceof Restaurant){
