@@ -46,4 +46,9 @@ Type the option number:
 
 ****Restaurantele contin un "FoodMeniu"- HashMap in care cheia este categoria obiectului "Food", iar valoarea este o listaa de obiecte "Food"
 
-*Functiile resgisterUser, registerDrivers, placeOrder, addDrink, addFood,registerRestaurants au fost comentate deoarece sunt incorporate in meniu
+Etapa 3:
+
+--Am modificat functiile din meniu pentru a se putea face CRUD pe toate cele 4 modele alese, ceea ce inseamna ca serviciul de Audit nu mai merge
+--De asemenea am comentat citirea si afisarea in fisier de la Etapa 2
+
+
