@@ -3,7 +3,7 @@ package project.models;
 import java.util.Objects;
 
 public class Address {
-
+    private int Id;
     private String City;
     private String Street;
     private int Number;
@@ -26,6 +26,14 @@ public class Address {
         this.Apartment = apartment;
     }
 
+    //constructor cu parametrii
+    public Address(int id, String city, String street, int number, int apartment) {
+        this.Id = id;
+        this.City = city;
+        this.Street = street;
+        this.Number = number;
+        this.Apartment = apartment;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,9 +49,12 @@ public class Address {
 
     @Override
     public String toString() {
-        return "{ "  + City  + ", Str. " + Street + ", Nr. " + Number + ", Ap. " + Apartment + '}';
+        return "{ " + Id + "," + City  + ", Str. " + Street + ", Nr. " + Number + ", Ap. " + Apartment + '}';
     }
 
+    public int getId() {
+        return Id;
+    }
 
     public String getCity() {
         return City;

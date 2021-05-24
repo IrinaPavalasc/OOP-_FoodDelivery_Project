@@ -33,6 +33,14 @@ public class Order {
         this.OrderedProducts = orderedProducts;
     }
 
+    public Order(int orderNumber, Date orderDate, int deliveryTime, project.models.User user, project.models.Restaurant restaurant, project.models.Driver driver) {
+        this.OrderNumber = orderNumber;
+        this.OrderDate = orderDate;
+        this.DeliveryTime = deliveryTime;
+        this.User = user;
+        this.Restaurant = restaurant;
+        this.Driver = driver;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,4 +1,4 @@
-package project.service;
+package project.csvService;
 import project.models.*;
 
 import java.io.FileWriter;

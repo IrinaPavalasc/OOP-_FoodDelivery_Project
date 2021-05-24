@@ -3,6 +3,7 @@ package project.models;
 import java.util.Objects;
 
 public class Card {
+    private int Id;
     private String CardNumber;
     private String ExpireDate;
     private int SecurityCode;
@@ -16,6 +17,13 @@ public class Card {
 
     //constructor cu parametrii
     public Card(String cardNumber, String expireDate, int securityCode) {
+        this.CardNumber = cardNumber;
+        this.ExpireDate = expireDate;
+        this.SecurityCode = securityCode;
+    }
+
+    public Card(int Id, String cardNumber, String expireDate, int securityCode) {
+        this.Id = Id;
         this.CardNumber = cardNumber;
         this.ExpireDate = expireDate;
         this.SecurityCode = securityCode;
@@ -36,10 +44,15 @@ public class Card {
 
     @Override
     public String toString() {
-        return "{" + "Card Number: " + CardNumber +
+        return "{" + Id +
+                "Card Number: " + CardNumber +
                 ", Expire Date: " + ExpireDate  +
                 ", Security Code: " + SecurityCode +
                 '}';
+    }
+
+    public int getId() {
+        return Id;
     }
 
     public String getCardNumber() {

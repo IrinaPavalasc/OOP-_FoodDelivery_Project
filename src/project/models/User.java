@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class User extends Person {
 
+    private int Id;
     private Address Address;
     private Card Card;
 
@@ -21,6 +22,13 @@ public class User extends Person {
         this.Card = card;
     }
 
+    //constructor cu parametrii
+    public User(int Id, String FirstName, String LastName, String Email, int Age, String PhoneNumber, Address address, Card card) {
+        super(FirstName, LastName, Email, Age, PhoneNumber);
+        this.Id = Id;
+        this.Address = address;
+        this.Card = card;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,7 +45,8 @@ public class User extends Person {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User{" + "Id: " +
+                Id + "," +
                 "Name: " + FirstName + LastName +
                 ", Email: " + Email +
                 ", Age: " + Age +
@@ -47,6 +56,7 @@ public class User extends Person {
                 '}';
     }
 
+    public int getId(){return Id;}
     public project.models.Address getAddress() {
         return Address;
     }

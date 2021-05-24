@@ -3,6 +3,7 @@ package project.models;
 import java.util.*;
 
 public class Restaurant {
+       private int Id;
        private String RestaurantName;
        private String Category;
        private int MinimumOrder;
@@ -32,6 +33,27 @@ public class Restaurant {
         this.DrinkMeniu = drinkMeniu;
     }
 
+    //constructor cu parametrii
+    public Restaurant(int Id, String restaurantName, String category,int MinimumOrder, double score, String city,HashMap<String,List<Food>> foodMeniu, List<Drink> drinkMeniu) {
+        this.Id=Id;
+        this.RestaurantName = restaurantName;
+        this.Category = category;
+        this.MinimumOrder = MinimumOrder;
+        this.score = score;
+        this.City = city;
+        this.FoodMeniu = foodMeniu;
+        this.DrinkMeniu = drinkMeniu;
+    }
+
+    //constructor cu parametrii
+    public Restaurant(int Id, String restaurantName, String category,int MinimumOrder, double score, String city) {
+        this.Id=Id;
+        this.RestaurantName = restaurantName;
+        this.Category = category;
+        this.MinimumOrder = MinimumOrder;
+        this.score = score;
+        this.City = city;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,11 +69,15 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return  RestaurantName + "\r\n" +
+        return   "#" + Id + " " +RestaurantName + "\r\n" +
                 "======================================\r\n" +
                 " Category: " + Category + "\r\n" +
-                " Minimim Order Price: " + MinimumOrder + "   ***** " + score + "\r\n";
+                " Minimim Order Price: " + MinimumOrder + "   ***** " + score + "\r\n" +
+                " City: " + City + "\r\n";
+
     }
+
+    public int getId(){return Id;}
 
     public String getRestaurantName() {
         return RestaurantName;
@@ -89,16 +115,8 @@ public class Restaurant {
         return MinimumOrder;
     }
 
-    public void setMinimumOrder(int MinimumOrder) {
-        MinimumOrder = MinimumOrder;
-    }
-
-    public double getscore() {
-        return score;
-    }
-
-    public void setscore(double score) {
-        score = score;
+    public void setMinimumOrder(int minimumOrder) {
+        MinimumOrder = minimumOrder;
     }
 
     public HashMap<String,List<Food>> getFoodMeniu() {
