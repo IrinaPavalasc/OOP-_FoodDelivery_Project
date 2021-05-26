@@ -352,6 +352,8 @@ public class UserService {
                 else {
                     System.out.println("                      Your Orders:                             ");
                     System.out.println("===============================================================");
+                    registeredOrders.clear();
+                    registeredOrders = orderRepository.getAllOrders();
                     for (Order o : registeredOrders) {
                         if (o.getUser().equals(userCurent)) {
                             System.out.println(o);

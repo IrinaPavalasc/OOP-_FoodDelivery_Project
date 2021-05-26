@@ -143,9 +143,12 @@ public class RestaurantService {
                     System.out.println("Please make sure all fields are filled in correctly.");
                     readInt.next();
                 }
+
                 ///audit.auditMethod(option);
             }
             if (option == 4) {
+                 registeredRestaurants.clear();
+                 registeredRestaurants = restaurantRepository.getAllRestaurants();
                  printRestaurants();
                  ///audit.auditMethod(option);
             }

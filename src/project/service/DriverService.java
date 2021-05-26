@@ -77,6 +77,8 @@ public class DriverService {
 //                audit.auditMethod(option);
             }
             if (option == 2) {
+                registeredDrivers.clear();
+                registeredDrivers = driverRepository.getAllDrivers();
                 printDrivers();
                 ///audit.auditMethod(option);
             }
@@ -141,7 +143,7 @@ public class DriverService {
 //              audit.auditMethod(option);
             }
             if (option == 4) {
-                System.out.println("Enter the id of the driveryou want to delete: ");
+                System.out.println("Enter the id of the driver you want to delete: ");
                 int id = readInt.nextInt();
                 driverRepository.deleteDriverbyId(id);
                 registeredDrivers = driverRepository.getAllDrivers();
